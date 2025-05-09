@@ -36,17 +36,24 @@ const todoList = () => {
             }
             else
             {
-               return `[ ] ${item.title}\n`; 
+               return `[ ] ${item.title}`; 
             }
            
 
         }
         else if(item.completed===true)
         {
-           return `[x] ${item.title} ${item.dueDate}\n`;
+           return `[x] ${item.title} ${item.dueDate}`;
         }
         else{
-            return `[ ] ${item.title} ${item.dueDate}\n`;
+            if(item.dueDate<currentDate)
+            {
+              return `[ ] ${item.title} ${item.dueDate}`;
+            }
+            else
+            {
+              return `[ ] ${item.title} ${item.dueDate}\n`;
+            }
         }
     }).join("");
     
